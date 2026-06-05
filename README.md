@@ -1,4 +1,4 @@
-# research-pipeline — 工程级数据分析方法论
+# data-analysis-pipeline — 工程级数据分析方法论
 
 从 `education-stat-survey-2026` 项目沉淀的数据分析工作流，遵循 [skills.sh](https://www.skills.sh/) Agent Skills 开放标准（Anthropic 提出、Vercel 推动），**一份 `SKILL.md` 跨 Claude Code / Codex CLI / Cursor / Gemini CLI / Cline / Windsurf / Copilot 通用**。
 
@@ -25,7 +25,7 @@
 analysis-template/
 ├── README.md                              # 本文件
 └── skills/
-    └── research-pipeline/
+    └── data-analysis-pipeline/
         ├── SKILL.md                       # 必需：流水线 + 方法学（任何 agent 读取）
         └── templates/                     # 可选 bundled 文件
             ├── CLAUDE.md                  # 项目级规范（可改名后给 Codex/Cursor/Qoder 用）
@@ -48,8 +48,8 @@ analysis-template/
 
 | 项 | 操作 |
 |----|------|
-| Skill | `cp -r skills/research-pipeline ~/.claude/skills/`（用户级）或 `.claude/skills/`（项目级） |
-| 项目规范 | `cp skills/research-pipeline/templates/CLAUDE.md <new-project>/CLAUDE.md` |
+| Skill | `cp -r skills/data-analysis-pipeline ~/.claude/skills/`（用户级）或 `.claude/skills/`（项目级） |
+| 项目规范 | `cp skills/data-analysis-pipeline/templates/CLAUDE.md <new-project>/CLAUDE.md` |
 | 触发 | ✅ 自动 —— Claude Code 启动时扫描 frontmatter，按 `description` 语义匹配后激活 |
 | 验证 | 在新项目里问："对一个 5 点 Likert 量表 × 三个地区做组间比较应该用什么方法？" 期望回答：**Kruskal-Wallis**，不是 ANOVA |
 
@@ -66,7 +66,7 @@ analysis-template/
 
 | 项 | 操作 |
 |----|------|
-| Skill | 新版 Cursor 支持 `.cursor/rules/*.mdc`，把 SKILL.md 改名为 `.cursor/rules/research-pipeline.mdc` 并在头部加 Cursor 风格的 `globs` / `alwaysApply` |
+| Skill | 新版 Cursor 支持 `.cursor/rules/*.mdc`，把 SKILL.md 改名为 `.cursor/rules/data-analysis-pipeline.mdc` 并在头部加 Cursor 风格的 `globs` / `alwaysApply` |
 | 项目规范 | `cp templates/CLAUDE.md <new-project>/.cursor/rules/data-analysis.mdc` |
 | 触发 | ⚠️ 半自动 —— 根据 `globs` 匹配文件类型时激活；推荐设 `alwaysApply: true` |
 | 验证 | 在 chat 里粘贴一段 ANOVA 代码，问"这段处理 Likert 量表对吗"，期望指出方法错误 |
@@ -84,7 +84,7 @@ analysis-template/
 
 | 项 | 操作 |
 |----|------|
-| Skill | 截至 2026-06，Qoder 的 rules 文件路径与 skills.sh 兼容性**未官方确认**；建议先放 `.qoder/rules/research-pipeline.md`（合并 SKILL.md + CLAUDE.md 内容） |
+| Skill | 截至 2026-06，Qoder 的 rules 文件路径与 skills.sh 兼容性**未官方确认**；建议先放 `.qoder/rules/data-analysis-pipeline.md`（合并 SKILL.md + CLAUDE.md 内容） |
 | 触发 | 被动参考 |
 | 验证 | 同上 Likert 问题 |
 
@@ -92,7 +92,7 @@ analysis-template/
 
 ```bash
 # Codex / Cursor / 其他：合并成单一规范文件
-cat templates/CLAUDE.md skills/research-pipeline/SKILL.md > <new-project>/AGENTS.md
+cat templates/CLAUDE.md skills/data-analysis-pipeline/SKILL.md > <new-project>/AGENTS.md
 ```
 
 ---
@@ -102,7 +102,7 @@ cat templates/CLAUDE.md skills/research-pipeline/SKILL.md > <new-project>/AGENTS
 把以下两份拼起来作为任何 LLM 的 system prompt：
 
 ```bash
-cat skills/research-pipeline/SKILL.md skills/research-pipeline/templates/CLAUDE.md
+cat skills/data-analysis-pipeline/SKILL.md skills/data-analysis-pipeline/templates/CLAUDE.md
 ```
 
 适用场景：
