@@ -55,7 +55,7 @@ allowed-tools: Read, Grep, Glob, Bash, Edit, Write
    report/      # 最终 Markdown/Word/PPT
    ```
 3. 写入 `pyproject.toml`（参考本 skill 的 `templates/pyproject.toml.template`）
-4. 复制本 skill 的 `templates/CLAUDE.md` 到项目根（Codex 用户改名为 `AGENTS.md`、Cursor 用户改为 `.cursor/rules/research.mdc`）
+4. 复制本 skill 的 `templates/CLAUDE.md` 到项目根（Codex 用户改名为 `AGENTS.md`、Cursor 用户改为 `.cursor/rules/data-analysis.mdc`）
 5. 复制本 skill 的 `templates/utils_template.py` 为项目 `scripts/utils.py`
 6. 生成空脚本 `01_clean.py` `02_describe.py` `03_cross.py` `04_compare.py` `05_viz.py` `99_audit.py`，每个含 docstring 说明阶段产出
 7. 执行 `uv sync`
